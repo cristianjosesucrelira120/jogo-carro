@@ -28,7 +28,7 @@ class Program
         Console.ForegroundColor = color;
         Console.Write(str);
     }
-    static void Main()  //by cristian e luanh
+    static void Main()
     {
         double velocidade = 100.0;
         double aceleracao = 0.5;
@@ -40,7 +40,7 @@ class Program
         Carro.x = 2;
         Carro.y = Console.WindowHeight - 1;
         Carro.c = '@';
-        Carro.color = ConsoleColor.Yellow;
+        Carro.color = ConsoleColor.Red;
         Random randomGenerator = new Random();
         List<Object> objects = new List<Object>();
         while (true)
@@ -57,7 +57,7 @@ class Program
                 if (chance < 10)
                 {
                     Object newObject = new Object();
-                    newObject.color = ConsoleColor.Cyan;
+                    newObject.color = ConsoleColor.Blue;
                     newObject.c = '-';
                     newObject.x = randomGenerator.Next(0, visaodejogo);
                     newObject.y = 0;
@@ -66,7 +66,7 @@ class Program
                 else if (chance < 20)
                 {
                     Object newObject = new Object();
-                    newObject.color = ConsoleColor.Cyan;
+                    newObject.color = ConsoleColor.Blue;
                     newObject.c = '*';
                     newObject.x = randomGenerator.Next(0, visaodejogo);
                     newObject.y = 0;
@@ -164,149 +164,4 @@ class Program
             Thread.Sleep((int)(600 - velocidade));
         }
     }
-}
-De: luan hammes <luaangh@outlook.com>
-Enviado: terça-feira, 20 de setembro de 2022 11:31
-Para: Luan Guilherme Hammes Santos <luan.h@edu.univali.br>
-Assunto: bnla
- 
- 
-
-internal class Program
-
-{
-
-    private static void Main(string[] args)
-
-    {
-
-        Console.WriteLine("olá bem vindo ao jogo");
-
- 
-
-        string[] palavras = { "ar", "casa", "predio", "cobra", "jogo", "Console" };
-
-        string palavra = " ", letra = " ";
-
-        int erro = 0, completo = 0, posicao = 0;
-
-        bool sair = false;
-
-        const int LIMITE = 7;
-
-        Random rnd = new Random();
-
-        int escolha = rnd.Next(0, 6);
-
-        palavra = palavras[escolha];
-
-        string[] quebrada = new string[palavra.Length];
-
-       
-
-        while (!sair)
-
-        {
-
-            Console.Clear();
-
-            Console.WriteLine("Numero de erros : {0} de {1}", erro, LIMITE);
-
- 
-
-            for (int i = 0; i < quebrada.Length; i++)
-
-            {
-
-                if (quebrada[i]!=null)
-
-                {
-
-                    Console.Write(quebrada[i] + " ");
-
- 
-
-                }
-
-                else
-
-                {
-
-                    Console.Write("_");
-
-                }
-
-            }
-
-            Console.WriteLine();
-
-            Console.WriteLine("Escolha Posição da Letra");
-
-            posicao = int.Parse(Console.ReadLine() );
-
-            Console.WriteLine("Digite a Letra");
-
-            letra = Console.ReadLine();
-
-            if (palavra.ElementAt(posicao-1) == letra.ElementAt(0) )
-
-            {
-
-                quebrada[posicao - 1] = letra;
-
-                completo++;
-
-            }
-
-            else
-
-            {
-
-                erro++;
-
- 
-
-            }
-
-            if (erro >= LIMITE)
-
-            {
-
-                sair = true;
-
-            }
-
-            if (completo == palavra.Length)
-
-                sair = true;
-
-            if (completo == palavra.Length)
-
-            {
-
-                Console.Clear();
-
-                Console.WriteLine("parabéns a palavra era: {0}!", palavra);
-
-            }else if (erro == LIMITE)
-
-            {
-
-                Console.Clear();
-
-                Console.WriteLine("Voce errou demais e foi enforcado");
-
-            }
-
-            Console.ReadKey();
-
- 
-
- 
-
-        }
-
-    }
-
-}
-// by luanh e cristian
+}  // feito por Cristian Sucre e Luan Hammes
